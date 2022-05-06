@@ -1,0 +1,233 @@
+ApertureCamera {
+    center 0 0 20
+    direction 0 0 -1
+    up 0 1 0
+    angle 30
+    width 640
+    height 640
+    f_a 4
+    f_u 20
+}
+
+Lights {
+    numLights 1
+    PointLight {
+        position 3 3.5 6
+        color 0.8 0.8 0.8
+    }
+}
+
+Background {
+    bg_color 0 0 0
+    am_color 0.3 0.3 0.3
+}
+
+Materials {
+    numMaterials 3
+    Material {
+        ambientColor 0.4 0.4 0.4
+	    diffuseColor 0.8 0.8 0.8 
+	    specularColor 0.5 0.5 0.5
+	    shininess 20
+    }
+    Material {
+        ambientColor 0.5 0.5 0.5
+	    diffuseColor 0.5 0.5 0.5 
+	    specularColor 0.8 0.8 0.8
+        w_diffusion 0.0
+        w_reflection 0.1
+        w_transmission 0.9
+        shininess 20
+        ref_index 1.5
+	}
+    Material {
+        ambientColor 0.5 0.5 0.5
+	    diffuseColor 0.5 0.5 0.5 
+	    specularColor 0.8 0.8 0.8
+        w_diffusion 0.7
+        w_reflection 0.3
+        w_transmission 0
+        shininess 20
+        ref_index 1.5
+    }
+}
+
+Textures {
+    numTextures 4
+    Texture {
+        Material { 
+            ambientColor 0.5 0.5 0.5
+	        diffuseColor 0.5 0.5 0.5
+	        specularColor 0.5 0.5 0.5
+	        shininess 50
+	    }
+        diffusion mesh/soil_color.tif
+        bump mesh/soil_nmap.tif
+        ambient mesh/soil_ao.tif
+    }
+    Texture {
+        Material { 
+            ambientColor 0.5 0.5 0.5
+	        diffuseColor 0.5 0.5 0.5
+	        specularColor 0.5 0.5 0.5
+	        shininess 50
+	    }
+        diffusion mesh/wood_color.tif
+        bump mesh/wood_nmap.tif
+        ambient mesh/wood_ao.tif
+    }
+    Texture {
+        Material { 
+	        ambientColor 1 1 1
+	        diffuseColor 0.64 0.64 0.64
+	        specularColor 0.2 0.2 0.2
+	        shininess 20
+	    }
+        diffusion mesh/plant_color.jpg
+        bump mesh/plant_nmap.jpg
+    }
+    Texture {
+        Material { 
+            ambientColor 0.5 0.5 0.5
+	        diffuseColor 0.5 0.5 0.5
+	        specularColor 0.5 0.5 0.5
+	        shininess 20
+	    }
+        diffusion mesh/brick_color.tif
+        bump mesh/brick_nmap.tif
+    }
+}
+
+Group {
+    numObjects 11
+    MaterialIndex 0
+    Transform {
+        Translate -1.5 -6.75 3
+        XRotate 0
+        YRotate 0
+        UniformScale 0.7
+        TriangleMesh {
+            obj_file mesh/plant.obj
+            interpolate 1
+            texture 2
+        }
+    }
+    Transform {
+        Translate 2.5 -4 0
+        XRotate 0
+        YRotate 0
+        UniformScale 0.7
+        TriangleMesh {
+            obj_file mesh/plant.obj
+            interpolate 1
+            texture 2
+        }
+    }
+
+    Transform {
+        Translate 0 -6.75 3
+        XRotate 0
+        YRotate -30
+        UniformScale 0.7
+        TriangleMesh {
+            obj_file mesh/plant.obj
+            interpolate 1
+            texture 2
+        }
+    }
+
+    Transform {
+        Translate -2 -2 -2
+        UniformScale 0.1
+        YRotate -45
+        TriangleMesh {
+            obj_file mesh/shelf.obj
+            interpolate 0
+            texture 1
+        }
+    }
+    
+    Transform {
+        Translate -3 0 -3
+        UniformScale 0.8
+        YRotate 45
+        TriangleMesh {
+            obj_file mesh/face.obj
+            interpolate 0
+            texture 3
+        }
+    }
+    Transform {
+        Translate 4 0 -3
+        UniformScale 0.8
+        YRotate -45
+        TriangleMesh {
+            obj_file mesh/face.obj
+            interpolate 0
+            texture 3
+        }
+    }
+    Transform {
+        Translate 0 4 0
+        UniformScale 1
+        XRotate 90
+        ZRotate 45
+        TriangleMesh {
+            obj_file mesh/face.obj
+            interpolate 0
+            texture 1
+        }
+    }
+    Transform {
+        Translate 0 -4 0
+        UniformScale 1
+        XRotate -90
+        TriangleMesh {
+            obj_file mesh/face.obj
+            interpolate 0
+            texture 0
+        }
+    }
+    MaterialIndex 1
+    Sphere {
+        center -3 -1.2 -1
+        radius 0.75
+    }
+
+    Transform {
+        Translate 3.5 -2.45 3
+        UniformScale 0.015
+        TriangleMesh {
+            obj_file mesh/bottle.obj
+            interpolate 1
+        }
+    }
+
+    MaterialIndex 2
+    Transform {
+        Translate -0.75 -0.65 -2.75
+        UniformScale 0.5
+        RevSurface {
+            profile BsplineCurve {
+                controls
+                    [ -1.029301 2.503360 0.0 ]
+                    [ -1.088800 2.345600 0.0 ]
+                    [ -1.278000 1.162800 0.0 ]
+                    [ -1.214800 0.055200 0.0 ]
+                    [ -0.915600 -0.381200 0.0 ]
+                    [ -0.380400 -0.622000 0.0 ]
+                    [ -0.144000 -0.968400 0.0 ]
+                    [ -0.096800 -1.480000 0.0 ]
+                    [ -0.128400 -2.112400 0.0 ]
+                    [ -0.317200 -2.202800 0.0 ]
+                    [ -0.894400 -2.262800 0.0 ]
+                    [ -1.014800 -2.323200 0.0 ]
+                    [ -0.999200 -2.398400 0.0 ]
+                    [ -0.857600 -2.458800 0.0 ]
+            }
+        }
+    }
+}
+
+
+

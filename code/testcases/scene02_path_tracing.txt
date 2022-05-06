@@ -1,0 +1,118 @@
+
+ApertureCamera {
+    center 0 0 20
+    direction 0 0 -1
+    up 0 1 0
+    angle 30
+    width 640
+    height 640
+    f_a 4
+    f_u 20
+}
+
+SurfaceLights {
+    numSurfaceLights 1
+    SurfaceLight {
+        color 100 100 100
+        norm 0 -1 0
+        x_axis 1 0 0
+        position 0 8 1
+        x_len 2
+        y_len 2
+    }
+}
+
+Background {
+    bg_color 0 0 0
+    am_color 0.2 0.2 0.2
+}
+
+Materials {
+    numMaterials 1
+    Material {
+        ambientColor 0.5 0.5 0.5
+	    diffuseColor 0.7 0.7 0.7 
+	    specularColor 0.5 0.5 0.5
+	    shininess 20
+    } 
+}
+
+Textures {
+    numTextures 3
+    Texture {
+        Material { 
+            ambientColor 0.5 0.5 0.5
+	        diffuseColor 0.64 0.64 0.64
+	        specularColor 0.8 0.8 0.8
+	        shininess 20
+	    }
+        diffusion mesh/spaceship_color.jpg
+        bump mesh/spaceship_nmap.jpg
+        specular mesh/spaceship_rough.jpg
+        ambient mesh/spaceship_ao.jpg
+        emission mesh/spaceship_emi.jpg
+    }
+    Texture {
+        Material { 
+            ambientColor 0.5 0.5 0.5
+	        diffuseColor 0.64 0.64 0.64
+	        specularColor 0.8 0.8 0.8
+	        shininess 20
+	    }
+        diffusion mesh/spacefloor_color.tif
+        bump mesh/spacefloor_nmap.tif
+        specular mesh/spacefloor_rough.tif
+        ambient mesh/spacefloor_ao.tif
+        emission mesh/spacefloor_emi.tif
+    }
+    Texture {
+        Material { 
+            ambientColor 0.5 0.5 0.5
+	        diffuseColor 0.64 0.64 0.64
+	        specularColor 0.8 0.8 0.8
+	        shininess 20
+	    }
+        diffusion mesh/spacewall_color.tif
+        bump mesh/spacewall_nmap.tif
+        specular mesh/spacewall_rough.tif
+        ambient mesh/spacewall_ao.tif
+    }
+}
+
+Group {
+    numObjects 3
+    MaterialIndex 0
+    Transform {
+        Translate 1 0 0
+        XRotate 10
+        YRotate 20
+        UniformScale 1.2
+        TriangleMesh {
+            obj_file mesh/spaceship.obj
+            interpolate 1
+            texture 0
+        }
+    }
+    Transform {
+        Translate 0 -4 0
+        UniformScale 0.8
+        XRotate -90
+        TriangleMesh {
+            obj_file mesh/face.obj
+            interpolate 0
+            texture 1
+        }
+    }
+    Transform {
+        Translate 0 0 -8
+        UniformScale 0.8
+        TriangleMesh {
+            obj_file mesh/face.obj
+            interpolate 0
+            texture 2
+        }
+    }
+}
+
+
+
